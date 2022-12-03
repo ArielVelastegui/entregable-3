@@ -10,32 +10,19 @@ import axios from 'axios'
 
 function App() {
   
-  const [hasError, setHasError] = useState(false)
   const [inputLoc, setInputLoc] = useState()
-
+  
   const randomIdLocation = (Math.floor(Math.random()*126)+1)
   
   const handleSubmit = (e)=>{
     e.preventDefault()
-    setInputLoc(e.target.inputSearch.value) 
+    setInputLoc(e.target.inputSearch.value)
   }
-
-  const data = getData(randomIdLocation)
-  const pops = data?.residents.length
   
-  useEffect(() => {
-    axios.get(`https://rickandmortyapi.com/api/location/${randomIdLocation}`)
-    .then(res=>{
-      setHasError(false)})
-      .catch(err=>{setHasError(true)})
-    }, [])
-    const popZ = ()=>{
-      if (data?.residents.length===0){
-          setPops('hide')
-      }else{
-          setPops('')
-      }
-    }
+  const data = getData(randomIdLocation,inputLoc)[0]
+  const hasError = getData(randomIdLocation,inputLoc)[1]
+  const pops = data?.residents.length
+
     
   console.log(pops)
   return (

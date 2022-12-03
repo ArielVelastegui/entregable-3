@@ -4,14 +4,14 @@ import { Location } from './components/Location'
 import ResidentInfo from './components/ResidentInfo'
 import { useEffect, useState } from 'react'
 import ErrorFetch from './components/ErrorFetch'
-import axios from 'axios'
+
 
 
 
 function App() {
   
   const [inputLoc, setInputLoc] = useState()
-  
+  const [hack, setHack] = useState()
   const randomIdLocation = (Math.floor(Math.random()*126)+1)
   
   const handleSubmit = (e)=>{
@@ -21,8 +21,22 @@ function App() {
   
   const data = getData(randomIdLocation,inputLoc)[0]
   const hasError = getData(randomIdLocation,inputLoc)[1]
+  
   const pops = data?.residents.length
 
+  useEffect(() => {
+      if (pops===0){
+        setHack(true)
+      } 
+      else if (pops!=0){
+        setHack(false)}
+    
+        if(hasError){
+          setHack(false)
+        }
+  }, [hack,pops,hasError,inputLoc,data])
+  
+  
     
   console.log(pops)
   return (
@@ -69,7 +83,7 @@ function App() {
           
       }
        <article>
-        <p className={pops===0?'pickle':'hide'}>This planet is ricksolated </p><img className={pops===0?'rickso':'hide'} src="/images/Pickle_rick.png" alt="picklerick photo" />
+        <p className={hack?'pickle':'hide'}>This planet is ricksolated </p><img className={hack?'rickso':'hide'} src="/images/Pickle_rick.png" alt="picklerick photo" />
        </article> 
       
     </div>

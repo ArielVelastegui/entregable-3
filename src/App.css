@@ -18,6 +18,7 @@
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
 }
 .pickle{
     text-align: center;
@@ -38,7 +39,13 @@
     padding: 10px;
     background-color: #1a1818;
     color: #fff;
-    
+    box-shadow: 0 0 20px #000;
+}
+
+.res_container:hover{
+    background-color: #322e2e;
+    transform: scale(1.05);
+    transition: 150ms;
 }
 
 ul{
@@ -167,6 +174,11 @@ button:hover{
     box-shadow: 0 0 20px #000;
     max-width: 80vw;
 }
+.planet:hover{
+    background-color: #65ca4c;
+    transform: scale(1.05);
+    transition: 150ms;
+}
 .planet h2{
     -webkit-text-stroke: #002930 2px ;
     color: rgba(255, 255, 255, 0.336);
@@ -226,6 +238,44 @@ button:hover{
     }
     .planet{
         margin-top: 0px;
+        
     }
     
+    .res_container{
+        margin-bottom: 20px;
+        max-width: 80vw;
+    }
+    .error{
+        text-align: center;
+        padding: 20px;
+        text-align: justify;
+        margin-top: 100px;
+        font-family:'Patrick Hand', cursive;
+        font-size: 2rem;
+        color: #00B2C9;
+        -webkit-text-stroke: 2px black;
+        text-shadow: 0 0 10px #84FD65;
+    }
+    header{
+        width: 100%;
+    }
+}
+
+.error{
+    text-align: center;
+    padding: 20px;
+    text-align: center;
+    margin-top: 100px;
+    font-family:'Patrick Hand', cursive;
+    font-size: 4rem;
+    color: #00B2C9;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 0 0 10px #84FD65;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.angry{
+    max-width: 80vw;
 }

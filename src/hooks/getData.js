@@ -6,6 +6,9 @@ const getData = (id,loc)=>{
     const [hasError, setHasError] = useState(false)
     const all = [data,hasError]
 let Url
+
+
+
 useEffect(() => {
   if(loc){
     Url=`https://rickandmortyapi.com/api/location/${loc}`
